@@ -6,7 +6,7 @@ function Footer() {
       <footer className="footer p-10 text-base-content">
         <div>
           <p>
-            © {new Date().getFullYear()} Haris Redzic's Blog. All rights
+            © {new Date().getFullYear()} Haris Redzic&apos;s Blog. All rights
             reserved.
           </p>
         </div>

@@ -22,7 +22,9 @@ const HomePage = () => {
               className="max-w-sm rounded-lg shadow-2xl"
             />
             <div>
-              <h1 className="text-5xl font-bold">Welcome to Haris' Blog!</h1>
+              <h1 className="text-5xl font-bold">
+                Welcome to Haris&apos; Blog!
+              </h1>
               <p className="py-6">
                 This space highlights my current work and showcases my projects.
                 You can also learn more about my areas of expertise and

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Haris' Blog - About Me",
+  title: "Haris Blog' - About Me",
   description:
     "A brief rundown of my professional skills and personal background.",
 };
@@ -29,8 +29,8 @@ const ProfilePage = () => {
               <h1 className="text-5xl font-bold">Haris Redzic</h1>
               <p className="mt-4 text-lg">
                 Software developer who recently graduated from the University of
-                Texas at Dallas' Computer Science program, with a passion for
-                full-stack development.
+                Texas at Dallas&apos; Computer Science program, with a passion
+                for full-stack development.
               </p>
             </div>
           </div>
@@ -59,8 +59,8 @@ const ProfilePage = () => {
                 Trying new restaurants or types of food is a necessity for me.
               </li>
               <li>
-                Going out with friends—doesn't matter where, I just enjoy being
-                out with others.
+                Going out with friends—doesn&apos;t matter where, I just enjoy
+                being out with others.
               </li>
               <li>Leetcode :(</li>
             </ul>
