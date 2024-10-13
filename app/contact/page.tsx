@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Me",
+  title: "Haris' Blog - Contact Me",
   description:
     "If you would like to reach out to me, please send me an email or message on LinkedIn.",
 };

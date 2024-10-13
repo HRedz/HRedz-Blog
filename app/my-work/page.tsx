@@ -11,13 +11,13 @@ interface RepoData {
 }
 
 export const metadata: Metadata = {
-  title: "My Work",
+  title: "Haris' Blog - My Work",
   description:
     "Explore the projects and repositories developed by Haris Redzic.",
 };
 
 const username = "HRedz";
-const repositories = ["ePantry"];
+const repositories = ["ePantry", "HRedz-Blog"];
 
 async function fetchRepos(): Promise<RepoData[]> {
   const repoDataPromises = repositories.map(async (repoName) => {

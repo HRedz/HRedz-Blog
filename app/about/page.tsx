@@ -1,4 +1,11 @@
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Haris' Blog - About Me",
+  description:
+    "A brief rundown of my professional skills and personal background.",
+};
 
 const ProfilePage = () => {
   return (

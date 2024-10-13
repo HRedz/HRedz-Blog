@@ -2,8 +2,9 @@
 import Image from "next/image";
 
 export const metadata = {
-  title: "Home - My Blog",
-  description: "Welcome to my blog where I share insights on [your topics].",
+  title: "Home - Haris' Blog",
+  description:
+    "Welcome to my blog where I share what I'm working on and showcase my projects.",
 };
 
 const HomePage = () => {

@@ -3,19 +3,19 @@
       "userId": 1,
       "id": 1,
       "title": "Personal Blog is Finalized",
-      "body": "I've added all the features I wanted on my blog, next I'll look into developing a real-time messaging platform, with an emphasis on security, privacy, and anonymity"
+      "body": "I've implemented all the basic features I wanted on my blog, next I'll look into adding timestamps to the blog posts and maybe a markdown formatter, as well as a more inutitive way to write posts."
     },
     {
       "userId": 1,
       "id": 2,
       "title": "Getting AWS Certified",
-      "body": "I've begun pursuing certifications from AWS, so first I'll become a Certified Cloud Practicioner. Afterwards, I'll begin preparing for either the AWS Developer Certificate or AWS Certified Solutions Architect."
+      "body": "I've begun pursuing certifications from AWS, so first I'll become a Certified Cloud Practicioner. Afterwards, I'll begin preparing for either the AWS Developer Certification or the AWS Certified Solutions Architect."
     },
     {
       "userId": 1,
       "id": 3,
-      "title": "Finishing Up My blog",
-      "body": "I've mostly completed my blog, however I would like to add a page for my resume or maybe certifications."
+      "title": "Working On My blog",
+      "body": "I've begun implementing all the basic requirements for my blog, so it felt fitting to make my first post."
     }
   ]
   

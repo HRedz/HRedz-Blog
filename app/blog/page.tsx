@@ -1,6 +1,12 @@
 import fs from "fs";
 import path from "path";
 import BlogList from "../components/BlogList/BlogList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Haris' Blog - Latest Posts",
+  description: "Latest posts regarding what I'm currently working on",
+};
 
 interface Post {
   userId: number;
