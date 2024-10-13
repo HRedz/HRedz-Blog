@@ -6,7 +6,7 @@ const config = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
-    daisyui: {},
+    'postcss-import': {},
   },
 };
 
