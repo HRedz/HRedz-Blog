@@ -20,7 +20,7 @@ const Contact = () => {
           >
             Connect on LinkedIn
           </a>
-          <a href="mailto:hredzic01@gmail.com" className="btn btn-secondary">
+          <a href="" className="btn btn-secondary">
             Send me an Email
           </a>
         </div>
