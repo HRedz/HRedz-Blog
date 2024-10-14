@@ -37,7 +37,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
       if (window.grecaptcha && window.grecaptcha.ready) {
         window.grecaptcha.ready(() => {
           setGrecaptchaReady(true);
-          console.log("grecaptcha is ready");
+          //console.log("grecaptcha is ready");
         });
       } else {
         // Try again after a delay
@@ -88,8 +88,13 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
       });
 
       if (response.ok) {
-        alert("Your message has been sent!");
         setFormData({ name: "", email: "", message: "" });
+        return (
+          <p>
+            Thank you for reaching out! I&apos;ll get back to you as soon as I
+            can :)
+          </p>
+        );
       } else {
         alert("There was an error sending your message. Please try again.");
       }
