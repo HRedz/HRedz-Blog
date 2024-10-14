@@ -1,7 +1,13 @@
 [
     {
       "userId": 1,
-      "id": 1,
+      "id": 4,
+      "title": "Added reCAPTCHA v3 and Messaging",
+      "body": "I've implemented a way to directly email me from the website using the email service Formspree. I've also integrated Google's reCAPTCHA v3 to minimize spam. Now I just need to polish the blog feature."
+    },
+    {
+      "userId": 1,
+      "id": 3,
       "title": "Personal Blog is Finalized",
       "body": "I've implemented all the basic features I wanted on my blog, next I'll look into adding timestamps to the blog posts and maybe a markdown formatter, as well as a more inutitive way to write posts."
     },
@@ -13,7 +19,7 @@
     },
     {
       "userId": 1,
-      "id": 3,
+      "id": 1,
       "title": "Working On My Blog",
       "body": "I've begun implementing all the basic requirements for my blog, so it felt fitting to make my first post."
     }
