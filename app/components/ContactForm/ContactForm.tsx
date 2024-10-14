@@ -113,7 +113,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
   return (
     <div className="mt-8 w-full max-w-lg">
       {isSubmitted && (
-        <div className="alert alert-success">
+        <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 flex-shrink-0 stroke-current"
