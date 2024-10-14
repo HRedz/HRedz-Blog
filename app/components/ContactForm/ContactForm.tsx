@@ -113,44 +113,43 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
   return (
     <div className="mt-8 w-full max-w-lg">
       {isSubmitted && (
-        <div className="alert alert-success shadow-lg">
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 flex-shrink-0 stroke-current"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            <span>Your message has been sent successfully!</span>
-          </div>
+        <div className="alert alert-success">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 flex-shrink-0 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+          <span>
+            Thank you for reaching out! I'll get back to you as soon as possible
+            :)
+          </span>
         </div>
       )}
 
       {errorMessage && (
-        <div className="alert alert-error mt-4 shadow-lg">
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 flex-shrink-0 stroke-current"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-            <span>{errorMessage}</span>
-          </div>
+        <div className="alert alert-error mt-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 flex-shrink-0 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+          <span>{errorMessage}</span>
         </div>
       )}
 
