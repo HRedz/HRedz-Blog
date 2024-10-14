@@ -1,20 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface ContactFormProps {
   siteKey: string;
 }
 
+declare global {
+  interface Window {
+    grecaptcha?: ReCaptchaV3;
+  }
+}
+
 interface ReCaptchaV3 {
   ready(callback: () => void): void;
   execute(siteKey: string, options: { action: string }): Promise<string>;
-}
-
-declare global {
-  interface Window {
-    grecaptcha: ReCaptchaV3;
-  }
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
@@ -29,6 +29,24 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [grecaptchaReady, setGrecaptchaReady] = useState(false);
+
+  useEffect(() => {
+    // Check if grecaptcha is available
+    const checkGrecaptcha = () => {
+      if (window.grecaptcha && window.grecaptcha.ready) {
+        window.grecaptcha.ready(() => {
+          setGrecaptchaReady(true);
+          console.log("grecaptcha is ready");
+        });
+      } else {
+        // Try again after a delay
+        setTimeout(checkGrecaptcha, 500);
+      }
+    };
+
+    checkGrecaptcha();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -39,16 +57,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!grecaptchaReady) {
+      alert("reCAPTCHA is not ready yet. Please wait a moment and try again.");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      // Wait for grecaptcha to be ready
-      await new Promise<void>((resolve) => {
-        window.grecaptcha.ready(resolve);
-      });
-
       // Obtain the reCAPTCHA token
-      const token = await window.grecaptcha.execute(siteKey, {
+      const token = await window.grecaptcha!.execute(siteKey, {
         action: "submit",
       });
 
@@ -59,7 +78,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
       };
 
       // Send the form data to Formspree
-      const response = await fetch("https://formspree.io/f/mpwzzpyy", {
+      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -69,9 +88,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
       });
 
       if (response.ok) {
-        alert(
-          "Your message has been sent! I'll get back to you as soon as I can :)",
-        );
+        alert("Your message has been sent!");
         setFormData({ name: "", email: "", message: "" });
       } else {
         alert("There was an error sending your message. Please try again.");
@@ -118,7 +135,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
           required
         />
       </div>
-      <button type="submit" className="btn btn-primary mt-6" disabled={loading}>
+      <button
+        type="submit"
+        className="btn btn-primary mt-6"
+        disabled={loading || !grecaptchaReady}
+      >
         {loading ? "Sending..." : "Send Message"}
       </button>
     </form>
