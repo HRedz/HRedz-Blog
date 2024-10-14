@@ -26,9 +26,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteKey: string = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string;
   return (
     <html data-theme="night" lang="en">
       <>
+        <head>
+          <script
+            src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
+            async
+            defer
+          ></script>
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
