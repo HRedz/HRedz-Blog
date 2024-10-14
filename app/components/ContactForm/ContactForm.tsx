@@ -128,8 +128,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
             />
           </svg>
           <span>
-            Thank you for reaching out! I'll get back to you as soon as possible
-            :)
+            Thank you for reaching out! I&apos;ll get back to you as soon as
+            possible :)
           </span>
         </div>
       )}
