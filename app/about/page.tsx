@@ -10,18 +10,18 @@ export const metadata: Metadata = {
 
 const ProfilePage = () => {
   return (
-    <main className="flex flex-col items-center justify-top min-h-screen p-6">
+    <main className="justify-top flex min-h-screen flex-col items-center p-6">
       <div className="card w-full bg-base-200 shadow-xl shadow-base-300">
         <div className="card-body">
-          <div className="flex flex-col lg:flex-row items-center lg:space-x-6">
+          <div className="flex flex-col items-center lg:flex-row lg:space-x-6">
             {/* Photo Section */}
             <div className="avatar">
-              <div className="w-40 h-40 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <div className="h-40 w-40 rounded-full ring ring-primary ring-offset-2 ring-offset-base-100">
                 <Image src={me} alt="Haris Redzic" width={160} height={160} />
               </div>
             </div>
             {/* Description Section */}
-            <div className="flex-1 text-center lg:text-left mt-6 lg:mt-0">
+            <div className="mt-6 flex-1 text-center lg:mt-0 lg:text-left">
               <h1 className="text-5xl font-bold">Haris Redzic</h1>
               <p className="mt-4 text-lg">
                 Software developer who recently graduated from the University of
@@ -33,7 +33,7 @@ const ProfilePage = () => {
           {/* Professional Skills */}
           <div className="mt-8">
             <h2 className="text-3xl font-semibold">Professional Skills</h2>
-            <ul className="list-disc list-inside mt-4 space-y-2 text-lg">
+            <ul className="mt-4 list-inside list-disc space-y-2 text-lg">
               <li>Programming Languages: C++, Java, Python, TypeScript</li>
               <li>
                 Frameworks/Libraries: React, Next.js, Node.js, TailwindCSS,
@@ -49,7 +49,7 @@ const ProfilePage = () => {
           {/* Personal Hobbies */}
           <div className="mt-8">
             <h2 className="text-3xl font-semibold">Personal Hobbies</h2>
-            <ul className="list-disc list-inside mt-4 space-y-2 text-lg">
+            <ul className="mt-4 list-inside list-disc space-y-2 text-lg">
               <li>Love going to the gym and being active.</li>
               <li>
                 Trying new restaurants or types of food is a necessity for me.

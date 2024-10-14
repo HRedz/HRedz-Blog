@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import ContactFormContainer from "../components/ContactFormContainer/ContactFormContainer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Haris' Blog - Contact Me",
@@ -7,10 +9,15 @@ export const metadata: Metadata = {
 };
 
 const Contact = () => {
+  const siteKey: string = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string;
   return (
     <>
-      <main className="flex flex-col items-center justify-top">
-        <h1 className="text-5xl font-bold mb-8">Get in Touch</h1>
+      <Script
+        src={"https://www.google.com/recaptcha/api.js?render=${siteKey}"}
+        strategy="beforeInteractive"
+      />
+      <main className="justify-top flex flex-col items-center">
+        <h1 className="mb-8 text-5xl font-bold">Get in Touch</h1>
         <div className="flex flex-col items-center space-y-4">
           <a
             href="https://www.linkedin.com/in/haris-redzic/"
@@ -20,9 +27,7 @@ const Contact = () => {
           >
             Connect on LinkedIn
           </a>
-          <a href="" className="btn btn-secondary">
-            Send me an Email
-          </a>
+          <ContactFormContainer siteKey={siteKey} />
         </div>
       </main>
     </>

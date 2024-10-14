@@ -3,7 +3,7 @@ import Image from "next/image";
 import logo from "../public/blog_logo.webp";
 
 export const metadata = {
-  title: "Home - Haris' Blog",
+  title: "Haris' Blog - Home",
   description:
     "Welcome to my blog where I share what I'm working on and showcase my projects.",
 };
@@ -14,7 +14,7 @@ const HomePage = () => {
       {/* Logo Section */}
       <main className="min-h-screen">
         <section className="hero min-h-screen">
-          <div className="hero-content flex-col lg:flex-row-reverse justify-top">
+          <div className="justify-top hero-content flex-col lg:flex-row-reverse">
             <Image
               src={logo}
               alt="Hero Image"
