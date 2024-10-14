@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 const Contact = () => {
   const siteKey: string = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string;
+  console.log(siteKey);
   return (
     <>
       <Script
