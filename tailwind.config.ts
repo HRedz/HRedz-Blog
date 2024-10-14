@@ -15,7 +15,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("daisyUI")],
+  plugins: [require("daisyui")],
   daisyui: {
     themes: ["lemonade", "aqua", "night", "dracula", "sunset"],
   },
