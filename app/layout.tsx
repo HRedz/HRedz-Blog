@@ -31,6 +31,10 @@ export default function RootLayout({
     <html data-theme="night" lang="en">
       <>
         <head>
+          <meta
+            name="google-site-verification"
+            content="nx7lx6CLS6eM6TSsVk4pH02ZBwTlheYC1zeKE1q0dBE"
+          />
           <link rel="icon" href="./favicon.ico" />
           <script
             src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
