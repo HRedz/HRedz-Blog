@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import ContactFormContainer from "../components/ContactFormContainer/ContactFormContainer";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Haris' Blog - Contact Me",
