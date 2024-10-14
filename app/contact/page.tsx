@@ -14,7 +14,7 @@ const Contact = () => {
   return (
     <>
       <Script
-        src={"https://www.google.com/recaptcha/api.js?render=${siteKey}"}
+        src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
         strategy="beforeInteractive"
       />
       <main className="justify-top flex flex-col items-center">
