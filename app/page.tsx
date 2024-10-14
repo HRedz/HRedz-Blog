@@ -1,5 +1,6 @@
 // app/page.tsx
 import Image from "next/image";
+import logo from "../public/blog_logo.webp";
 
 export const metadata = {
   title: "Home - Haris' Blog",
@@ -15,7 +16,7 @@ const HomePage = () => {
         <section className="hero min-h-screen">
           <div className="hero-content flex-col lg:flex-row-reverse justify-top">
             <Image
-              src="/blog_logo.webp"
+              src={logo}
               alt="Hero Image"
               width={500}
               height={500}

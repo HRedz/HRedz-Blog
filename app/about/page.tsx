@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Metadata } from "next";
+import me from "../../public/1652900938783.webp";
 
 export const metadata: Metadata = {
   title: "Haris Blog' - About Me",
@@ -16,12 +17,7 @@ const ProfilePage = () => {
             {/* Photo Section */}
             <div className="avatar">
               <div className="w-40 h-40 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <Image
-                  src="/1652900938783.jpg"
-                  alt="Haris Redzic"
-                  width={160}
-                  height={160}
-                />
+                <Image src={me} alt="Haris Redzic" width={160} height={160} />
               </div>
             </div>
             {/* Description Section */}
