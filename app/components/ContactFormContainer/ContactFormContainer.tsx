@@ -19,7 +19,10 @@ const ContactFormContainer: React.FC<ContactFormContainerProps> = ({
   return (
     <>
       <div>
-        <button className="btn btn-primary" onClick={() => toggleOverlay(true)}>
+        <button
+          className="btn btn-secondary"
+          onClick={() => toggleOverlay(true)}
+        >
           Send me an Email
         </button>
       </div>

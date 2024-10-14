@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 
 interface ContactFormProps {
@@ -33,6 +32,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Make sure reCAPTCHA is loaded
   useEffect(() => {
     const checkGrecaptcha = () => {
       if (window.grecaptcha && window.grecaptcha.ready) {
@@ -58,6 +58,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // ensure reCAPTCHA is loaded
     if (!grecaptchaReady) {
       setErrorMessage(
         "reCAPTCHA is not ready yet. Please wait a moment and try again.",
@@ -90,6 +91,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
         body: JSON.stringify(data),
       });
 
+      // Check response and handle errors
       if (response.ok) {
         setIsSubmitted(true);
         setFormData({ name: "", email: "", message: "" });
@@ -123,19 +125,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
 
       {errorMessage && (
         <div className="alert alert-error mt-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 flex-shrink-0 stroke-current"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
           <span>{errorMessage}</span>
         </div>
       )}
