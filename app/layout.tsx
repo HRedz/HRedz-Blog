@@ -31,6 +31,7 @@ export default function RootLayout({
     <html data-theme="night" lang="en">
       <>
         <head>
+          <link rel="icon" href="./favicon.ico" />
           <script
             src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
             async

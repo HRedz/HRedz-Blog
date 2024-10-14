@@ -130,47 +130,50 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
       )}
 
       {!isSubmitted ? (
-        <form onSubmit={handleSubmit}>
-          <div className="form-control">
-            <label className="label font-semibold">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="input input-bordered"
-              required
-            />
-          </div>
-          <div className="form-control mt-4">
-            <label className="label font-semibold">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="input input-bordered"
-              required
-            />
-          </div>
-          <div className="form-control mt-4">
-            <label className="label font-semibold">Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="textarea textarea-bordered"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="btn btn-primary mt-6"
-            disabled={loading || !grecaptchaReady}
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-        </form>
+        <>
+          <h2 className="mb-4 text-2xl font-bold">Contact Me</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-control">
+              <label className="label font-semibold">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control mt-4">
+              <label className="label font-semibold">Your Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control mt-4">
+              <label className="label font-semibold">Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="textarea textarea-bordered"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="btn btn-primary mt-6"
+              disabled={loading || !grecaptchaReady}
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
+          </form>
+        </>
       ) : null}
     </div>
   );
