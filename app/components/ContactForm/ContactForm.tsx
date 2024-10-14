@@ -30,17 +30,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
 
   const [loading, setLoading] = useState(false);
   const [grecaptchaReady, setGrecaptchaReady] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    // Check if grecaptcha is available
     const checkGrecaptcha = () => {
       if (window.grecaptcha && window.grecaptcha.ready) {
         window.grecaptcha.ready(() => {
           setGrecaptchaReady(true);
-          //console.log("grecaptcha is ready");
+          console.log("grecaptcha is ready");
         });
       } else {
-        // Try again after a delay
         setTimeout(checkGrecaptcha, 500);
       }
     };
@@ -59,11 +59,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
     e.preventDefault();
 
     if (!grecaptchaReady) {
-      alert("reCAPTCHA is not ready yet. Please wait a moment and try again.");
+      setErrorMessage(
+        "reCAPTCHA is not ready yet. Please wait a moment and try again.",
+      );
       return;
     }
 
     setLoading(true);
+    setErrorMessage("");
 
     try {
       // Obtain the reCAPTCHA token
@@ -88,66 +91,113 @@ const ContactForm: React.FC<ContactFormProps> = ({ siteKey }) => {
       });
 
       if (response.ok) {
+        setIsSubmitted(true);
         setFormData({ name: "", email: "", message: "" });
-        return (
-          <p>
-            Thank you for reaching out! I&apos;ll get back to you as soon as I
-            can :)
-          </p>
-        );
       } else {
-        alert("There was an error sending your message. Please try again.");
+        const result = await response.json();
+        setErrorMessage(
+          result.error ||
+            "There was an error sending your message. Please try again.",
+        );
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("There was an error sending your message. Please try again.");
+      setErrorMessage(
+        "There was an error sending your message. Please try again.",
+      );
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mt-8 w-full max-w-lg">
-      <div className="form-control">
-        <label className="label font-semibold">Name</label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className="input input-bordered"
-          required
-        />
-      </div>
-      <div className="form-control mt-4">
-        <label className="label font-semibold">Email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="input input-bordered"
-          required
-        />
-      </div>
-      <div className="form-control mt-4">
-        <label className="label font-semibold">Message</label>
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          className="textarea textarea-bordered"
-          required
-        />
-      </div>
-      <button
-        type="submit"
-        className="btn btn-primary mt-6"
-        disabled={loading || !grecaptchaReady}
-      >
-        {loading ? "Sending..." : "Send Message"}
-      </button>
-    </form>
+    <div className="mt-8 w-full max-w-lg">
+      {isSubmitted && (
+        <div className="alert alert-success shadow-lg">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 flex-shrink-0 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <span>Your message has been sent successfully!</span>
+          </div>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className="alert alert-error mt-4 shadow-lg">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 flex-shrink-0 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+            <span>{errorMessage}</span>
+          </div>
+        </div>
+      )}
+
+      {!isSubmitted ? (
+        <form onSubmit={handleSubmit}>
+          <div className="form-control">
+            <label className="label font-semibold">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control mt-4">
+            <label className="label font-semibold">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control mt-4">
+            <label className="label font-semibold">Message</label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="textarea textarea-bordered"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="btn btn-primary mt-6"
+            disabled={loading || !grecaptchaReady}
+          >
+            {loading ? "Sending..." : "Send Message"}
+          </button>
+        </form>
+      ) : null}
+    </div>
   );
 };
 
