@@ -1,4 +1,4 @@
-https://hredz.pages.dev/about
-https://hredz.pages.dev/my-work
-https://hredz.pages.dev/contact
-https://hredz.pages.dev/blog
+https://hredz.pages.dev/about.html
+https://hredz.pages.dev/my-work.html
+https://hredz.pages.dev/contact.html
+https://hredz.pages.dev/blog.html
