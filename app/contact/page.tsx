@@ -15,7 +15,7 @@ const Contact = () => {
         <h1 className="mb-8 text-5xl font-bold">Get in Touch</h1>
         <div className="flex flex-col items-center space-y-4">
           <a
-            href="https://www.linkedin.com/in/haris-redzic/"
+            href="https://www.linkedin.com/in/hredz/"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
