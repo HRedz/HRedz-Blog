@@ -5,7 +5,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Haris' Blog - Latest Posts",
-  description: "Latest posts regarding what I'm currently working on",
+  description:
+    "Stay informed with the latest posts from Haris Redzic, featuring deep dives into current projects, innovative ideas, and reflections on the ever-evolving world of technology.",
 };
 
 interface Post {

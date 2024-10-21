@@ -3,9 +3,9 @@ import { Metadata } from "next";
 import me from "../../public/1652900938783.webp";
 
 export const metadata: Metadata = {
-  title: "Haris Blog' - About Me",
+  title: "Haris' Blog - About Me",
   description:
-    "A brief rundown of my professional skills and personal background.",
+    "Learn about Haris Redzic's professional journey, including his technical skills, educational background, and personal interests that drive his passion for software development.",
 };
 
 const ProfilePage = () => {

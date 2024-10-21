@@ -13,7 +13,7 @@ interface RepoData {
 export const metadata: Metadata = {
   title: "Haris' Blog - My Work",
   description:
-    "Explore the projects and repositories developed by Haris Redzic.",
+    "Discover the diverse range of projects and repositories developed by Haris Redzic, showcasing his expertise in software development, problem-solving skills, and contributions to the tech community.",
 };
 
 const username = "HRedz";
@@ -25,7 +25,7 @@ async function fetchRepos(): Promise<RepoData[]> {
       `https://api.github.com/repos/${username}/${repoName}`,
       {
         cache: "force-cache",
-      }
+      },
     );
 
     if (!res.ok) {
@@ -45,7 +45,7 @@ async function fetchRepos(): Promise<RepoData[]> {
   });
 
   const repos = (await Promise.all(repoDataPromises)).filter(
-    Boolean
+    Boolean,
   ) as RepoData[];
   return repos;
 }
@@ -54,9 +54,9 @@ const MyWork = async () => {
   const repos = await fetchRepos();
 
   return (
-    <main className="flex flex-col items-center justify-top min-h-screen p-4">
-      <h1 className="text-5xl font-bold mb-8">My Work</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <main className="justify-top flex min-h-screen flex-col items-center p-4">
+      <h1 className="mb-8 text-5xl font-bold">My Work</h1>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {repos.map((repo) => (
           <div
             key={repo.id}
@@ -77,7 +77,7 @@ const MyWork = async () => {
               <div className="mt-4 flex flex-wrap items-center space-x-4">
                 <div className="flex items-center space-x-1">
                   <svg
-                    className="w-5 h-5 text-yellow-500"
+                    className="h-5 w-5 text-yellow-500"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -87,7 +87,7 @@ const MyWork = async () => {
                 </div>
                 <div className="flex items-center space-x-1">
                   <svg
-                    className="w-5 h-5 text-gray-500"
+                    className="h-5 w-5 text-gray-500"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >

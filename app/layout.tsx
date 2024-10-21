@@ -15,12 +15,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Haris' Blog",
-  description:
-    "Blog containing my projects, a little bit about me, and a way to contact me.",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{

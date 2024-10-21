@@ -4,7 +4,7 @@ import ContactFormContainer from "../components/ContactFormContainer/ContactForm
 export const metadata: Metadata = {
   title: "Haris' Blog - Contact Me",
   description:
-    "If you would like to reach out to me, please send me an email or message on LinkedIn.",
+    "Get in touch with Haris Redzic for collaborations, inquiries, or networking opportunities. Reach out via email or connect with him on LinkedIn to start a conversation.",
 };
 
 const Contact = () => {

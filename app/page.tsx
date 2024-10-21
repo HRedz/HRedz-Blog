@@ -1,11 +1,10 @@
-// app/page.tsx
 import Image from "next/image";
 import logo from "../public/blog_logo.webp";
 
 export const metadata = {
   title: "Haris' Blog - Home",
   description:
-    "Welcome to my blog where I share what I'm working on and showcase my projects.",
+    "Dive into Haris Redzic's personal blog where he shares insights on his latest projects, development techniques, and tech industry trends. Stay updated with his journey in software development and personal growth.",
 };
 
 const HomePage = () => {

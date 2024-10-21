@@ -1,5 +1,3 @@
-// functions/_middleware.ts
-
 export async function onRequest(context: {
     request: Request;
     next: () => Promise<Response>;
